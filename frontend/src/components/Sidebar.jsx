@@ -5,6 +5,7 @@ import axios from "axios"
 
 const Sidebar = () => {
     const navigate=useNavigate();
+    const API_URL = import.meta.env.VITE_API_URL;
     const [allboards,setallboards]=useState([]);
     const onLogout=()=>{
 
@@ -19,7 +20,7 @@ useEffect(()=>{
 const fetchdata=async()=>{
 try {
   
-const fetchingboards=await axios.get("http://localhost:3000/api/boards",{
+const fetchingboards=await axios.get(`${API_URL}/api/boards`,{
   headers:{
     token:authtoken
   }

@@ -7,7 +7,7 @@ import { Droppable, Draggable } from '@hello-pangea/dnd';
 
 const Section = ({ mystate, sectiondiv,onupdate, lastMovedCard }) => {
 
-
+const API_URL = import.meta.env.VITE_API_URL;
     let parentdata=mystate;
     const [verifying,setverifying]=useState(false);
     const [verifychildcard,setverifychildcard]=useState(false);
@@ -23,7 +23,7 @@ const Section = ({ mystate, sectiondiv,onupdate, lastMovedCard }) => {
     // console.log(sectionid);
     try{
         const authtoken=JSON.parse(localStorage.getItem("token"));
-        const deleteingsection=await axios.delete(`http://localhost:3000/api/sections/${sectionid}`, {
+        const deleteingsection=await axios.delete(`${API_URL}/api/sections/${sectionid}`, {
         headers: {
           token:authtoken,
         },
@@ -45,7 +45,7 @@ const handleAddCard=async()=>{
      try{
       // const sectionid=sectiondiv._id;
         const authtoken=JSON.parse(localStorage.getItem("token"));
-        const response=await axios.post(`http://localhost:3000/api/cards/${sectiondiv._id}`, {
+        const response=await axios.post(`${API_URL}/api/cards/${sectiondiv._id}`, {
           title:cardTitle,
           description:carddescription
         },{
@@ -77,7 +77,7 @@ const gettingallcards=async()=>{
      try{
       const sectionid=sectiondiv._id;
         const authtoken=JSON.parse(localStorage.getItem("token"));
-        const response=await axios.get(`http://localhost:3000/api/cards/${sectionid}`,{
+        const response=await axios.get(`${API_URL}/api/cards/${sectionid}`,{
           headers:{
             token:authtoken
           }

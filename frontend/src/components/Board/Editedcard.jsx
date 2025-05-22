@@ -6,6 +6,7 @@ import axios from "axios";
 const Editedcard = () => {
   const [title, settitle] = useState("");
   const [description, setdescription] = useState("");
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const {sectionid,cardid,boardid}=useParams();
   let navigate=useNavigate();
@@ -15,7 +16,7 @@ const Editedcard = () => {
     const fetchingcard=async()=>{
         try {
              const authtoken=JSON.parse(localStorage.getItem("token"));
-        const response=await axios.get(`http://localhost:3000/api/card/${sectionid}/${cardid}`,{
+        const response=await axios.get(`${API_URL}/api/card/${sectionid}/${cardid}`,{
           headers:{
             token:authtoken
           }
@@ -38,7 +39,7 @@ if(response.data.success){
         const authtoken=JSON.parse(localStorage.getItem("token"));
         
         
-        const response=await axios.put(`http://localhost:3000/api/cards/${cardid}`,
+        const response=await axios.put(`${API_URL}/api/cards/${cardid}`,
             {
                 title:title,
                 description:description,
@@ -63,7 +64,7 @@ if(response.data.success){
   const deletecard=async()=>{
     try {
           const authtoken=JSON.parse(localStorage.getItem("token"));
-         const response=await axios.delete(`http://localhost:3000/api/cards/${cardid}`,{
+         const response=await axios.delete(`${API_URL}/api/cards/${cardid}`,{
             headers:{
                 token:authtoken
             },

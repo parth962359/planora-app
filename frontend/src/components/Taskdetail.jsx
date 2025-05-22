@@ -17,6 +17,7 @@ const getstatuscolor = (status) => {
 }
 
 const TaskDetail = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const { id } = useParams();
   const navigate = useNavigate();
   
@@ -31,7 +32,7 @@ const TaskDetail = () => {
     
     const fetchtask=async()=>{
 try{
-const fetchdata=await axios.get(`http://localhost:3000/api/tasks/${id}`,{
+const fetchdata=await axios.get(`${API_URL}/api/tasks/${id}`,{
     headers:{
         "token":authtoken
     }
@@ -60,7 +61,7 @@ fetchtask();
 const deletetask=async()=>{
   // const authtoken=JSON.parse(localStorage.getitem("token"));
   try{
-    const deleting=await axios.delete(`http://localhost:3000/api/tasks/${id}`,{
+    const deleting=await axios.delete(`${API_URL}/api/tasks/${id}`,{
       headers:{
         "token":authtoken
       }

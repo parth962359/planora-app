@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Boardform = () => {
   const [emoji, setEmoji] = useState('📄'); // Default to document emoji
   const [title, setTitle] = useState('');
+  const API_URL = import.meta.env.VITE_API_URL;
   const [description, setDescription] = useState('');
   const [favourites, setfavourites] = useState(false);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -16,7 +17,7 @@ const Boardform = () => {
     
     const authtoken=JSON.parse(localStorage.getItem("token"));
   
-  try{  const postingboarddata= await axios.post("http://localhost:3000/api/boards",{
+  try{  const postingboarddata= await axios.post(`${API_URL}/api/boards`,{
       emoji:emoji,
       title:title,
       description:description,

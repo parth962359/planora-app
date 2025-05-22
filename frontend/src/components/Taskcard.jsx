@@ -16,6 +16,7 @@ const getStatusColor = (status) => {
 
 const TaskCard = ({ task }) => {
   const navigate = useNavigate();
+  // const API_URL = import.meta.env.VITE_API_URL;
 
   const truncate = (text, maxWords = 50) =>
     text.slice(0, maxWords) + (text.length > maxWords ? '...' : '');

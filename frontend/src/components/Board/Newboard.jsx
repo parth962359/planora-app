@@ -8,6 +8,7 @@ import Section from './Section.jsx';
 import Picker from 'emoji-picker-react';
 
 const Newboard = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
     const [verifing,setverifing]=useState(false);
     const [lastMovedCard, setLastMovedCard] = useState(null);
  const [emoji, setEmoji] = useState('📄');
@@ -32,7 +33,7 @@ const updatingfromchild=(somedata)=>{
  const fetchboarddata=async()=>{
     try{
 
-        const gotdata=await axios.get(`http://localhost:3000/api/boards/${boardid}`,{
+        const gotdata=await axios.get(`${API_URL}/api/boards/${boardid}`,{
             headers:{
                 token:authtoken
             }
@@ -54,7 +55,7 @@ const updatingfromchild=(somedata)=>{
  const fetchsectiondata=async()=>{
     try{
         const authtoken=JSON.parse(localStorage.getItem("token"));
-        const fetchsection=await axios.get(`http://localhost:3000/api/sections/${boardid}`,{
+        const fetchsection=await axios.get(`${API_URL}/api/sections/${boardid}`,{
             headers:{
                 token:authtoken
             }
@@ -97,7 +98,7 @@ const onDragEnd = async (result) => {
     
     const authtoken = JSON.parse(localStorage.getItem("token"));
    try{ 
-    const response=await axios.put(`http://localhost:3000/api/cards/${cardId}/move`, {
+    const response=await axios.put(`${API_URL}/api/cards/${cardId}/move`, {
       sectionid: destSectionId
     }, {
       headers: {
@@ -127,7 +128,7 @@ const onDragEnd = async (result) => {
 //deleteing board
 const deleteboard=async()=>{
     try{
-  const deleteingboard=await axios.delete(`http://localhost:3000/api/boards/${boardid}`,{
+  const deleteingboard=await axios.delete(`${API_URL}/api/boards/${boardid}`,{
     headers:{
         token:authtoken
     }
@@ -151,7 +152,7 @@ setShowEmojiPicker(!showEmojiPicker);
 const handleAddSection=async()=>{
     try{
         const authtoken=JSON.parse(localStorage.getItem("token"));
-        const postsection=await axios.post(`http://localhost:3000/api/sections/${boardid}`,{
+        const postsection=await axios.post(`${API_URL}/api/sections/${boardid}`,{
             emoji:emoji,
             title:sectionTitle,
             

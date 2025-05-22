@@ -4,12 +4,13 @@ import axios from 'axios';
 
 function Card({card,updatedata,newstate}) {
     const {boardid}=useParams();
+    const API_URL = import.meta.env.VITE_API_URL;
     const navigate=useNavigate();
 
       const deletecard=async()=>{
         try {
               const authtoken=JSON.parse(localStorage.getItem("token"));
-             const response=await axios.delete(`http://localhost:3000/api/cards/${card._id}`,{
+             const response=await axios.delete(`${API_URL}/api/cards/${card._id}`,{
                 headers:{
                     token:authtoken
                 },

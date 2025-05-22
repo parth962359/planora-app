@@ -6,6 +6,7 @@ import axios from "axios";
 
 
 function Tasksform() {
+  const API_URL = import.meta.env.VITE_API_URL;
     let [title,settitle]=useState("");
     let [description,setdescription]=useState("");
     let [Duedate,setDuedate]=useState("");
@@ -24,7 +25,7 @@ function Tasksform() {
 
   try {
     const response = await axios.post(
-      "http://localhost:3000/api/tasks",
+      `${API_URL}/api/tasks`,
       {
         title: title,
         description: description,

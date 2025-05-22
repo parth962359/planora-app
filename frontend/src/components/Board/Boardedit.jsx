@@ -10,6 +10,7 @@ function Boardedit() {
    const [description, setDescription] = useState('');
    const [favourites, setfavourites] = useState();
    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+   const API_URL = import.meta.env.VITE_API_URL;
   
     const {boardid} =useParams();
     let navigate=useNavigate();
@@ -19,7 +20,7 @@ function Boardedit() {
  const fetchboarddata=async()=>{
     try{
 
-        const gotdata=await axios.get(`http://localhost:3000/api/boards/${boardid}`,{
+        const gotdata=await axios.get(`${API_URL}/api/boards/${boardid}`,{
             headers:{
                 token:authtoken
             }
@@ -46,7 +47,7 @@ function Boardedit() {
 
       try {
         
-        const updatingdata=await axios.put(`http://localhost:3000/api/boards/${boardid}`,{
+        const updatingdata=await axios.put(`${API_URL}/api/boards/${boardid}`,{
           emoji:emoji,
           title:title,
           description:description,

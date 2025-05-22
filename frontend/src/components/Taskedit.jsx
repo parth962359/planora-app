@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from "axios";
 
 function Taskedit(){
-  
+  const API_URL = import.meta.env.VITE_API_URL;
   let [title,settitle]=useState("");
   let [description,setdescription]=useState("");
   let [status,setstatus]=useState("");
@@ -26,7 +26,7 @@ let navigate= useNavigate();
 
     const fetchtask=async()=>{
       try{
-const fetchdata=await axios.get(`http://localhost:3000/api/tasks/${id}`,{
+const fetchdata=await axios.get(`${API_URL}/api/tasks/${id}`,{
     headers:{
         "token":authtoken
     }
@@ -53,7 +53,7 @@ fetchtask();
 
 const handleclick=async(e)=>{
 e.preventDefault(); 
-try{  const editdata=await axios.put(`http://localhost:3000/api/tasks/${id}`,{
+try{  const editdata=await axios.put(`${API_URL}/api/tasks/${id}`,{
 title:title,
 description:description,
 creationdate:creationdate,

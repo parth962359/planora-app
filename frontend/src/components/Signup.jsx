@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Signin from './Signin';
 
 function Signup() {
-
+const API_URL = import.meta.env.VITE_API_URL;
 let [username, setusername]= useState('')
 let [email, setemail]= useState('')
 let [password, setpassword]= useState('')
@@ -28,7 +28,7 @@ let postdata = async () => {
 
   try {
     // Use the full backend URL if the backend is running on a different port
-    const response = await axios.post("http://localhost:3000/api/signup", data);
+    const response = await axios.post(`${API_URL}/api/signup`, data);
 
     // Check if the response indicates success
     if (response.data.success) {

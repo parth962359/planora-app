@@ -7,7 +7,7 @@ import Sidebar from "./Sidebar"
 
 function Tasks() {
     const navigate=useNavigate();
-   
+   const API_URL = import.meta.env.VITE_API_URL;
 
     const [taskdata,settaskdata]=useState([]);
 
@@ -22,7 +22,7 @@ function Tasks() {
         
         const fetchtask=async()=>{
             try{
-                const fetchdata=await axios.get("http://localhost:3000/api/tasks",{
+                const fetchdata=await axios.get(`${API_URL}/api/tasks`,{
                     headers:{
                        "token":authtoken // Use Authorization header with Bearer token
                     }
