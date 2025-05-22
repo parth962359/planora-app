@@ -1,0 +1,17 @@
+<!-- Elegant Planora App Logo SVG -->
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="40" fill="url(#paint0_linear)" />
+  <g>
+    <circle cx="90" cy="90" r="54" fill="#fff" fill-opacity="0.08"/>
+    <path d="M60 110 Q90 60 120 110" stroke="#60a5fa" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <circle cx="90" cy="90" r="32" fill="#2563eb" fill-opacity="0.9"/>
+    <text x="90" y="100" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="32" font-weight="bold" fill="#fff" letter-spacing="2">P</text>
+  </g>
+  <text x="90" y="165" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="22" font-weight="bold" fill="#60a5fa" letter-spacing="3">Planora</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#232526"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+</svg>
