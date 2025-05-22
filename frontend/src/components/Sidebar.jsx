@@ -45,7 +45,7 @@ fetchdata();
     <div className="w-64 h-screen bg-gray-900  text-white flex flex-col justify-between p-4 fixed  border-gray-900  border-r-gray-500 border-1"> 
     
       <div>
-        <h2 className="text-4xl font-extrabold mt-8 mb-6">{username.slice(1,(username.length-1))}</h2>
+        <h2 className="text-4xl font-extrabold mt-8 mb-6 break-all">{username.slice(1,(username.length-1))}</h2>
         <hr />
  <div className=" mt-8 mb-4 cursor-pointer  " onClick={()=>{navigate("/createboard")}}>
           <h3 className="flex items-center justify-between  hover:text-white gap-2 font-semibold text-gray-400">
